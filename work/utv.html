@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="apple-touch-icon" href="/images/favicon.png" />
+  <title>'Under the Veil' — Alex Argilés</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/player.css" />
+</head>
+<body class="player-page">
+
+  <div class="cursor__dot"   id="cursor-dot"   aria-hidden="true"></div>
+  <div class="cursor__ring"  id="cursor-ring"  aria-hidden="true"></div>
+  <div class="cursor__label" id="cursor-label" aria-hidden="true">VIEW</div>
+
+  <div class="player is-paused" id="player">
+    <header class="player__header">
+      <div class="player__title">
+        <h1>'Under the Veil'</h1>
+        <p>Director · Producer · 2020</p>
+      </div>
+      <a href="../index.html#work" class="player__close" id="player-close" aria-label="Close player">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </a>
+    </header>
+
+    <div class="player__video-wrap">
+      <video id="player-video" preload="auto" playsinline>
+        <source src="../video/undertheveil_v1 (1080p).mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <button class="player__play-btn" id="player-play-btn" aria-label="Play">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
+
+    <div class="player__controls">
+      <input type="range" class="player__scrubber" id="player-scrubber" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+      <div class="player__controls-row">
+        <div class="player__controls-left">
+          <button class="player__btn" id="player-ctrl-play" aria-label="Play / Pause">
+            <svg id="ctrl-play-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <svg id="ctrl-pause-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <span class="player__time" id="player-time">0:00 / 0:00</span>
+        </div>
+        <div class="player__controls-right">
+          <button class="player__btn" id="player-mute-btn" aria-label="Toggle sound">
+            <svg id="mute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg id="unmute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          </button>
+          <span class="player__sound-label" id="player-sound-label">Sound On</span>
+          <button class="player__btn" id="player-fs-btn" aria-label="Fullscreen">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/player.js"></script>
+</body>
+</html>

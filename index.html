@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Alex Argilés — Film Producer, Writer & Director</title>
+  <meta name="description" content="Alex Argilés is a film producer, writer, and director based in New York City, crafting cinematic stories with depth and intention." />
+  <meta name="author" content="Alex Argilés" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.alexargiles.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.alexargiles.com/" />
+  <meta property="og:title" content="Alex Argilés — Film Producer, Writer & Director" />
+  <meta property="og:description" content="Alex Argilés is a film producer, writer, and director based in New York City, crafting cinematic stories with depth and intention." />
+  <meta property="og:image" content="https://www.alexargiles.com/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Alex Argilés" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.alexargiles.com/" />
+  <meta name="twitter:title" content="Alex Argilés — Film Producer, Writer & Director" />
+  <meta name="twitter:description" content="Alex Argilés is a film producer, writer, and director based in New York City, crafting cinematic stories with depth and intention." />
+  <meta name="twitter:image" content="https://www.alexargiles.com/images/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="apple-touch-icon" href="/images/favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       CUSTOM CURSOR — crosshair / film-frame reticle
+  ============================================================ -->
+  <div class="cursor__dot"   id="cursor-dot"   aria-hidden="true"></div>
+  <div class="cursor__ring"  id="cursor-ring"  aria-hidden="true"></div>
+  <div class="cursor__label" id="cursor-label" aria-hidden="true">VIEW</div>
+
+  <!-- ============================================================
+       NAV OVERLAY (fullscreen)
+  ============================================================ -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <ul class="nav-overlay__links" role="list">
+      <li><a href="#work"    class="nav-overlay__link" data-label="01">Work</a></li>
+      <li><a href="#about"   class="nav-overlay__link" data-label="02">About</a></li>
+      <li><a href="#contact" class="nav-overlay__link" data-label="03">Contact</a></li>
+    </ul>
+    <p class="nav-overlay__location">New York City</p>
+  </div>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#hero" class="nav__logo">Alex Argilés</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg">
+        <video
+          class="hero__video"
+          autoplay muted loop playsinline preload="auto"
+          aria-hidden="true"
+        >
+          <source src="video/Home-Mozaic.mp4" type="video/mp4" />
+        </video>
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__content container">
+        <p class="hero__eyebrow">Producer · Writer · Director</p>
+        <h1 class="hero__title">Alex<br>Argilés</h1>
+        <p class="hero__location">New York City</p>
+        <a href="#work" class="btn btn--outline">View Work</a>
+      </div>
+      <a href="#work" class="hero__scroll" aria-label="Scroll to work">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="12" y1="5" x2="12" y2="19"/>
+          <polyline points="19 12 12 19 5 12"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         WORK — full-viewport stacked panels
+    ============================================================ -->
+    <section id="work" class="work">
+
+      <!-- 01 Clave (2020) -->
+      <article class="project-panel" id="panel-clave">
+        <div class="project-panel__bg">
+          <img src="images/CLAVE-poster.jpg" alt="Clave" class="project-panel__img" loading="lazy" />
+          <video class="project-panel__video" muted loop playsinline preload="none" aria-hidden="true">
+            <source src="video/clave_bcgrnd.mp4" type="video/mp4" />
+          </video>
+          <div class="project-panel__overlay"></div>
+        </div>
+        <div class="project-panel__content">
+          <div class="project-panel__text">
+            <h3 class="project-panel__title">'Clave'</h3>
+            <p class="project-panel__role">Director · Writer</p>
+            <p class="project-panel__year">2020</p>
+          </div>
+          <div class="project-panel__laurels">
+            <img src="images/OFFICIAL SELECTION - Experimental Edge Film  Art Festival - CEFF Tallahassee - 2020.png" alt="Official Selection — CEFF Tallahassee 2020" class="laurel" loading="lazy" />
+            <img src="images/OFFICIAL SELECTION - Middlesex Film Festival - 2020.png" alt="Official Selection — Middlesex Film Festival 2020" class="laurel" loading="lazy" />
+            <img src="images/OFFICIAL SELECTION - Oxford Film Festival 24th Annual - 2021_Clave.png" alt="Official Selection — Oxford Film Festival 2021" class="laurel" loading="lazy" />
+            <img src="images/WINNER - WorldFest-Houston International Film Festival - 2021_Clave.png" alt="Winner — WorldFest-Houston International Film Festival 2021" class="laurel" loading="lazy" />
+          </div>
+        </div>
+        <span class="project-panel__index" aria-hidden="true">01</span>
+      </article>
+
+      <!-- 02 Under the Veil (2020) -->
+      <article class="project-panel" id="panel-utv">
+        <div class="project-panel__bg">
+          <img src="images/UTV-poster_edited.jpg" alt="Under the Veil" class="project-panel__img" loading="lazy" />
+          <video class="project-panel__video" muted loop playsinline preload="none" aria-hidden="true">
+            <source src="video/UTV-Trailer.mp4" type="video/mp4" />
+          </video>
+          <div class="project-panel__overlay"></div>
+        </div>
+        <div class="project-panel__content">
+          <div class="project-panel__text">
+            <h3 class="project-panel__title">'Under the Veil'</h3>
+            <p class="project-panel__role">Director · Producer</p>
+            <p class="project-panel__year">2020</p>
+          </div>
+          <div class="project-panel__laurels">
+            <img src="images/OFFICIAL SELECTION - Middlesex Film Festival - 2020_UTV.png" alt="Official Selection — Middlesex Film Festival 2020" class="laurel" loading="lazy" />
+          </div>
+        </div>
+        <span class="project-panel__index" aria-hidden="true">02</span>
+      </article>
+
+      <!-- 03 Have a Nice Night (2020) -->
+      <article class="project-panel" id="panel-hann">
+        <div class="project-panel__bg">
+          <img src="images/hann_poster.png" alt="Have a Nice Night" class="project-panel__img" loading="lazy" />
+          <video class="project-panel__video" muted loop playsinline preload="none" aria-hidden="true">
+            <source src="video/HANN-Trailer.mp4" type="video/mp4" />
+          </video>
+          <div class="project-panel__overlay"></div>
+        </div>
+        <div class="project-panel__content">
+          <div class="project-panel__text">
+            <h3 class="project-panel__title">'Have a Nice Night'</h3>
+            <p class="project-panel__role">Editor · Producer</p>
+            <p class="project-panel__year">2020</p>
+          </div>
+        </div>
+        <span class="project-panel__index" aria-hidden="true">03</span>
+      </article>
+
+      <!-- 04 EXIT (2019) -->
+      <article class="project-panel" id="panel-exit">
+        <div class="project-panel__bg">
+          <img src="images/exit-poster.jpg" alt="EXIT" class="project-panel__img" loading="lazy" />
+          <video class="project-panel__video" muted loop playsinline preload="none" aria-hidden="true">
+            <source src="video/EXIT_BCKGRND.mp4" type="video/mp4" />
+          </video>
+          <div class="project-panel__overlay"></div>
+        </div>
+        <div class="project-panel__content">
+          <div class="project-panel__text">
+            <h3 class="project-panel__title">'EXIT'</h3>
+            <p class="project-panel__role">Director · Writer · Producer</p>
+            <p class="project-panel__year">2019</p>
+          </div>
+        </div>
+        <span class="project-panel__index" aria-hidden="true">04</span>
+      </article>
+
+      <!-- 05 The Brother (2018) -->
+      <article class="project-panel" id="panel-brother">
+        <div class="project-panel__bg">
+          <img src="images/TheBrother_edited.jpg" alt="The Brother" class="project-panel__img" loading="lazy" />
+          <video class="project-panel__video" muted loop playsinline preload="none" aria-hidden="true">
+            <source src="video/the_brother_bcgrnd.mp4" type="video/mp4" />
+          </video>
+          <div class="project-panel__overlay"></div>
+        </div>
+        <div class="project-panel__content">
+          <div class="project-panel__text">
+            <h3 class="project-panel__title">'The Brother'</h3>
+            <p class="project-panel__role">Director · Writer</p>
+            <p class="project-panel__year">2018</p>
+          </div>
+          <div class="project-panel__laurels">
+            <img src="images/OFFICIAL SELECTION - Experimental Edge Film  Art Festival - CEFF Tallahassee - 2020_TB.png" alt="Official Selection — CEFF Tallahassee 2020" class="laurel" loading="lazy" />
+            <img src="images/OFFICIAL SELECTION - Miami Independent Film Festival - 2019_TB.png" alt="Official Selection — Miami Independent Film Festival 2019" class="laurel" loading="lazy" />
+            <img src="images/OFFICIAL SELECTION - Saints and Sinners Film Festival - 2019_TB.png" alt="Official Selection — Saints and Sinners Film Festival 2019" class="laurel" loading="lazy" />
+          </div>
+        </div>
+        <span class="project-panel__index" aria-hidden="true">05</span>
+      </article>
+
+      <!-- Emmy -->
+      <article class="project-panel" id="panel-emmy">
+        <div class="project-panel__bg">
+          <video class="project-panel__video project-panel__video--primary" muted loop playsinline preload="metadata" aria-hidden="true">
+            <source src="video/Sequence_EMMYS_HD.mp4" type="video/mp4" />
+          </video>
+          <div class="project-panel__overlay"></div>
+        </div>
+        <div class="project-panel__content">
+          <div class="project-panel__text">
+            <h3 class="project-panel__title">'Emmy Awards'</h3>
+            <p class="project-panel__role">Producer</p>
+            <p class="project-panel__year">2023</p>
+          </div>
+        </div>
+        <span class="project-panel__index" aria-hidden="true">06</span>
+      </article>
+
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+    ============================================================ -->
+    <section class="section about" id="about">
+      <div class="container about__grid">
+        <div class="about__text reveal">
+          <h2 class="section__title">About</h2>
+          <p class="about__lead">
+            Alex Argilés Acevedo is an Emmy Award-winning Producer driven by a passion for crafting compelling stories that resonate on a human level.
+          </p>
+          <p>
+            Born in Havana and based in New York City, Alex blends cultural authenticity with creative storytelling to create impactful content — his stories often deal with the sacrifices we make for our loved ones.
+          </p>
+          <p>
+            Starting his career at Florida State University's prestigious Film program, Alex quickly became known for his creative vision and sharp planning, from budgeting to scheduling. His journey has led to collaborations with leading artists, networks, and production companies, earning multiple accolades, including five NYC Emmy nominations.
+          </p>
+          <p>
+            Whether producing groundbreaking documentaries or dynamic television specials, Alex's work exemplifies excellence and heart, continuously pushing boundaries in the world of media and entertainment.
+          </p>
+          <div class="about__accolades">
+            <img src="images/Emmy.png" alt="Emmy Award" class="about__emmy" loading="lazy" />
+          </div>
+          <div class="about__cta">
+            <a href="#contact" class="btn btn--primary">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section class="section contact" id="contact">
+      <div class="container contact__inner">
+        <h2 class="section__title reveal">Contact</h2>
+        <p class="contact__intro reveal reveal--delay-1">
+          Available for film, television, and commercial projects.
+        </p>
+        <div class="contact__links reveal reveal--delay-2">
+          <a href="https://www.cityllamamarketing.com" class="contact__item" target="_blank" rel="noopener" data-cursor-label="VISIT">
+            <span class="contact__label">Production Company</span>
+            <span class="contact__value">City Llama <span class="contact__role">· Founder &amp; CEO</span></span>
+          </a>
+          <a href="mailto:alex@cityllamamarketing.com" class="contact__item" data-cursor-label="WRITE">
+            <span class="contact__label">Company Email</span>
+            <span class="contact__value">alex@cityllamamarketing.com</span>
+          </a>
+          <a href="mailto:alexargiles@icloud.com" class="contact__item" data-cursor-label="WRITE">
+            <span class="contact__label">Personal Email</span>
+            <span class="contact__value">alexargiles@icloud.com</span>
+          </a>
+          <a href="https://www.imdb.com/name/nm10126351/" class="contact__item" target="_blank" rel="noopener" data-cursor-label="VISIT">
+            <span class="contact__label">IMDb</span>
+            <span class="contact__value">View Profile →</span>
+          </a>
+          <a href="https://www.instagram.com/aleargile" class="contact__item" target="_blank" rel="noopener" data-cursor-label="VISIT">
+            <span class="contact__label">Instagram</span>
+            <span class="contact__value">@aleargile</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p class="site-footer__name">Alex Argilés</p>
+      <p class="site-footer__copy">&copy; <span id="footer-year"></span> Alex Argilés. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

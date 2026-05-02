@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Videos — too large for git; host via CDN / Vimeo / Bunny.net
+video/*.mp4
+video/*.mov
+video/*.webm
+
+# Keep the placeholder so the video/ folder is tracked
+!video/.gitkeep
+
+# Unrelated sub-projects
+Documents/
+
+# Claude Code internals
+.claude/
