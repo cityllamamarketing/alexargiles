@@ -3,13 +3,8 @@
 .AppleDouble
 .LSOverride
 
-# Videos — too large for git; host via CDN / Vimeo / Bunny.net
-video/*.mp4
-video/*.mov
-video/*.webm
-
-# Keep the placeholder so the video/ folder is tracked
-!video/.gitkeep
+# Videos tracked via Git LFS (see .gitattributes)
+# No exclusions needed — LFS handles large files automatically
 
 # Unrelated sub-projects
 Documents/
