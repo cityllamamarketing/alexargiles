@@ -54,7 +54,7 @@
 }
 
 /* ============================================================
-   PAGE LOADER
+   PAGE LOADER — cinema curtain wipe
 ============================================================ */
 .loader {
   position: fixed;
@@ -64,11 +64,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.8s var(--ease-out), visibility 0.8s;
+  /* Slide off to the right on dismiss */
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1),
+              visibility 0.9s;
 }
 
 .loader.is-hidden {
-  opacity: 0;
+  transform: translateX(100%);
   visibility: hidden;
   pointer-events: none;
 }
@@ -77,7 +79,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
 .loader__name {
@@ -87,27 +89,25 @@
   letter-spacing: 0.12em;
   color: var(--color-text);
   opacity: 0;
-  animation: loader-name-in 0.9s var(--ease-out) 0.2s forwards;
+  animation: loader-name-in 0.9s var(--ease-out) 0.15s forwards;
 }
 
 @keyframes loader-name-in {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.loader__track {
-  width: clamp(160px, 30vw, 280px);
+/* Thin gold rule beneath the name — fades in after the name */
+.loader__rule {
+  width: 0;
   height: 1px;
-  background: rgba(255, 255, 255, 0.12);
-  position: relative;
-  overflow: hidden;
+  background: var(--color-accent);
+  animation: loader-rule-in 0.7s var(--ease-out) 0.7s forwards;
 }
 
-.loader__bar {
-  position: absolute;
-  inset: 0 100% 0 0; /* width driven by JS via right: X% */
-  background: var(--color-accent);
-  transition: right 0.3s ease;
+@keyframes loader-rule-in {
+  from { width: 0; opacity: 0; }
+  to   { width: clamp(80px, 15vw, 140px); opacity: 1; }
 }
 
 /* ============================================================

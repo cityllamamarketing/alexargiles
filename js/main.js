@@ -2,40 +2,19 @@
    PAGE LOADER
 ============================================================ */
 (function () {
-  const loader  = document.getElementById('page-loader');
-  const bar     = document.getElementById('loader-bar');
-  if (!loader || !bar) return;
+  const loader = document.getElementById('page-loader');
+  if (!loader) return;
 
-  // Minimum display time so the loader never flashes too briefly
-  const MIN_MS = 1400;
+  // Minimum display time — lets the name + gold rule finish their entrance
+  const MIN_MS = 1600;
   const start  = Date.now();
 
-  // Animate the bar from 0 → ~85% while page loads, then snap to 100% on done
-  let progress = 0;
-  let rafId;
-
-  function advanceBar() {
-    // Ease toward 85% autonomously — slows as it approaches
-    progress += (85 - progress) * 0.04;
-    setBar(progress);
-    rafId = requestAnimationFrame(advanceBar);
-  }
-
-  function setBar(pct) {
-    bar.style.right = (100 - pct) + '%';
-  }
-
   function dismiss() {
-    cancelAnimationFrame(rafId);
-    setBar(100);
-    // Wait a beat for the bar to visually complete, then fade loader out
-    setTimeout(() => loader.classList.add('is-hidden'), 350);
+    loader.classList.add('is-hidden');
   }
-
-  advanceBar();
 
   window.addEventListener('load', () => {
-    const elapsed = Date.now() - start;
+    const elapsed   = Date.now() - start;
     const remaining = Math.max(0, MIN_MS - elapsed);
     setTimeout(dismiss, remaining);
   });
