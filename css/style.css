@@ -911,6 +911,7 @@ button { background: none; border: none; font: inherit; color: inherit; }
   .hero__location { margin-bottom: 0; }
   .hero__scroll  { display: none; }
   .hero .btn     { display: none; } /* remove VIEW WORK on mobile */
+  .nav__logo     { display: none; } /* name already shown in hero */
 
   .about__grid { grid-template-columns: 1fr; }
   .about__image-wrap::before { display: none; }
