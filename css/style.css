@@ -885,16 +885,32 @@ button { background: none; border: none; font: inherit; color: inherit; }
     scroll-snap-align: start;
   }
 
-  /* ── Hero: natural 16:9 aspect ratio so full mosaic is visible ── */
+  /* ── Hero: full viewport, text at top as its own zone ── */
   .hero {
-    aspect-ratio: 16 / 9;
-    min-height: unset;
+    min-height: 100svh;
+    justify-content: flex-start;
+    align-items: center;
   }
-  .hero__title        { font-size: clamp(2rem, 7vw, 3.2rem); }
-  .hero__eyebrow      { margin-bottom: var(--space-2); }
-  .hero__location     { margin-bottom: var(--space-3); }
-  .hero__content      { padding-bottom: var(--space-3); }
-  .hero__scroll       { display: none; }
+  .hero__overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(10,10,10,0.82) 0%,
+      rgba(10,10,10,0.55) 35%,
+      rgba(10,10,10,0.0)  65%,
+      rgba(10,10,10,0.0) 100%
+    );
+  }
+  .hero__content {
+    padding-top: clamp(5rem, 18vw, 7rem); /* clear fixed header */
+    padding-bottom: 0;
+    text-align: center;
+    width: 100%;
+  }
+  .hero__title   { font-size: clamp(2.8rem, 10vw, 4rem); }
+  .hero__eyebrow { margin-bottom: var(--space-2); }
+  .hero__location { margin-bottom: 0; }
+  .hero__scroll  { display: none; }
+  .hero .btn     { display: none; } /* remove VIEW WORK on mobile */
 
   .about__grid { grid-template-columns: 1fr; }
   .about__image-wrap::before { display: none; }
