@@ -885,6 +885,17 @@ button { background: none; border: none; font: inherit; color: inherit; }
     scroll-snap-align: start;
   }
 
+  /* ── Hero: natural 16:9 aspect ratio so full mosaic is visible ── */
+  .hero {
+    aspect-ratio: 16 / 9;
+    min-height: unset;
+  }
+  .hero__title        { font-size: clamp(2rem, 7vw, 3.2rem); }
+  .hero__eyebrow      { margin-bottom: var(--space-2); }
+  .hero__location     { margin-bottom: var(--space-3); }
+  .hero__content      { padding-bottom: var(--space-3); }
+  .hero__scroll       { display: none; }
+
   .about__grid { grid-template-columns: 1fr; }
   .about__image-wrap::before { display: none; }
   .site-footer__inner { flex-direction: column; align-items: flex-start; }
