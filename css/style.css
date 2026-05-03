@@ -54,6 +54,63 @@
 }
 
 /* ============================================================
+   PAGE LOADER
+============================================================ */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s var(--ease-out), visibility 0.8s;
+}
+
+.loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.loader__name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  opacity: 0;
+  animation: loader-name-in 0.9s var(--ease-out) 0.2s forwards;
+}
+
+@keyframes loader-name-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.loader__track {
+  width: clamp(160px, 30vw, 280px);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader__bar {
+  position: absolute;
+  inset: 0 100% 0 0; /* width driven by JS via right: X% */
+  background: var(--color-accent);
+  transition: right 0.3s ease;
+}
+
+/* ============================================================
    RESET & BASE
 ============================================================ */
 *, *::before, *::after {
