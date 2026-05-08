@@ -727,7 +727,7 @@ button { background: none; border: none; font: inherit; color: inherit; }
 
 .about__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   gap: clamp(var(--space-12), 6vw, var(--space-20));
   max-width: 1100px;
   align-items: start;
@@ -743,12 +743,7 @@ button { background: none; border: none; font: inherit; color: inherit; }
   position: relative;
 }
 .about__image-wrap::before {
-  content: '';
-  position: absolute;
-  inset: var(--space-6) calc(var(--space-6) * -1) calc(var(--space-6) * -1) var(--space-6);
-  border: var(--border);
-  z-index: 0;
-  pointer-events: none;
+  display: none;
 }
 
 .about__img {
