@@ -190,7 +190,6 @@ const panelLinks = {
   'panel-hann':    'work/hann.html',
   'panel-exit':    'work/exit.html',
   'panel-emmy':    'emmys.html',
-  'panel-85':      'https://alexargiles-videos-portfolio.b-cdn.net/85_Percent_MASTER.mp4',
 };
 
 Object.entries(panelLinks).forEach(([id, href]) => {
