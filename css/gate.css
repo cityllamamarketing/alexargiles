@@ -1,0 +1,289 @@
+/* ============================================================
+   ACCESS GATE — screening-room password screen
+   Standalone: does not load the main site stylesheet, so the
+   native text caret stays available inside the input.
+============================================================ */
+
+:root {
+  --gate-bg:     #08080a;
+  --gate-text:   #ffffff;
+  --gate-muted:  rgba(255, 255, 255, 0.34);
+  --gate-accent: #c8a96e;
+  --gate-alert:  #b5473f;
+
+  --gate-serif: 'Cormorant Garamond', Georgia, serif;
+  --gate-sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --gate-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  background: var(--gate-bg);
+  color: var(--gate-text);
+  font-family: var(--gate-sans);
+  font-weight: 300;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------
+   TEXTURE — grain, scanlines, vignette
+------------------------------------------------------------ */
+.gate__grain,
+.gate__scanlines,
+.gate__vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gate__grain {
+  opacity: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  animation:
+    grain-in 2.4s var(--gate-ease) 0.15s forwards,
+    grain-drift 0.7s steps(3, end) infinite;
+}
+
+@keyframes grain-in {
+  from { opacity: 0; }
+  to   { opacity: 0.16; }
+}
+
+/* Nudges the noise tile so the grain reads as moving film */
+@keyframes grain-drift {
+  0%   { background-position: 0 0; }
+  33%  { background-position: -24px 12px; }
+  66%  { background-position: 16px -18px; }
+  100% { background-position: 0 0; }
+}
+
+.gate__scanlines {
+  opacity: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.045) 0px,
+    rgba(255, 255, 255, 0.045) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scan-in 2.8s var(--gate-ease) 0.3s forwards;
+}
+
+@keyframes scan-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.gate__vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 38%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+/* ------------------------------------------------------------
+   LAYOUT
+------------------------------------------------------------ */
+.gate {
+  position: relative;
+  z-index: 2;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 6vw, 3rem);
+}
+
+.gate__inner {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+
+  opacity: 0;
+  filter: blur(14px);
+  transform: translateY(10px);
+  animation: gate-in 1.8s var(--gate-ease) 0.45s forwards;
+}
+
+@keyframes gate-in {
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+.gate__brand {
+  font-family: var(--gate-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: clamp(2.75rem, 9vw, 4rem);
+}
+
+/* ------------------------------------------------------------
+   LABEL + FLICKERING CARET
+------------------------------------------------------------ */
+.gate__label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gate-accent);
+  margin-bottom: var(--gate-gap, 1.75rem);
+}
+
+.gate__caret {
+  display: inline-block;
+  width: 0.42em;
+  height: 0.95em;
+  margin-left: 0.5em;
+  background: var(--gate-accent);
+  vertical-align: -0.1em;
+  animation: caret-flicker 1.25s steps(1, end) infinite;
+}
+
+@keyframes caret-flicker {
+  0%, 44%   { opacity: 1; }
+  45%, 62%  { opacity: 0; }
+  63%, 71%  { opacity: 0.55; }  /* brief half-lit tick — reads as an old CRT */
+  72%, 100% { opacity: 1; }
+}
+
+/* ------------------------------------------------------------
+   INPUT
+------------------------------------------------------------ */
+.gate__field {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.gate__input {
+  width: 100%;
+  padding: 0.5rem 0 0.75rem;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--gate-text);
+  font-family: var(--gate-sans);
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.42em;
+  text-align: center;
+  text-indent: 0.42em; /* offsets the trailing letter-space so text stays centred */
+  caret-color: var(--gate-accent);
+}
+
+.gate__rule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.4s var(--gate-ease), box-shadow 0.4s var(--gate-ease);
+}
+
+.gate__input:focus ~ .gate__rule {
+  background: var(--gate-accent);
+  box-shadow: 0 0 14px rgba(200, 169, 110, 0.35);
+}
+
+.gate__hint {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gate-muted);
+  transition: opacity 0.4s var(--gate-ease);
+}
+
+.gate__hint span { font-size: 0.8rem; letter-spacing: 0; }
+
+.gate__inner.is-busy .gate__hint { opacity: 0.25; }
+
+/* ------------------------------------------------------------
+   ERROR — shake + red flash, no harsh copy
+------------------------------------------------------------ */
+.gate__field.is-error { animation: gate-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+
+.gate__field.is-error .gate__rule {
+  background: var(--gate-alert);
+  box-shadow: 0 0 18px rgba(181, 71, 63, 0.6);
+}
+
+.gate__field.is-error .gate__input { color: var(--gate-alert); }
+
+@keyframes gate-shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-7px); }
+  40%, 60% { transform: translateX(7px); }
+}
+
+/* Full-screen red bloom, very brief */
+.gate__inner.is-error::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(181, 71, 63, 0.16), transparent 62%);
+  pointer-events: none;
+  animation: gate-flash 0.55s ease-out forwards;
+}
+
+@keyframes gate-flash {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* ------------------------------------------------------------
+   SUCCESS — fade the form, wipe to the light page
+------------------------------------------------------------ */
+.gate__inner.is-open {
+  opacity: 0;
+  filter: blur(6px);
+  transition: opacity 0.5s var(--gate-ease), filter 0.5s var(--gate-ease);
+  animation: none;
+}
+
+.gate__wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #f7f6f3; /* matches the /branded background for a seamless hand-off */
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.gate__wipe.is-active {
+  transform: scaleX(1);
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1) 0.25s;
+}
+
+/* ------------------------------------------------------------
+   A11Y
+------------------------------------------------------------ */
+.gate__sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gate__grain,
+  .gate__scanlines,
+  .gate__inner,
+  .gate__caret { animation: none; }
+
+  .gate__grain  { opacity: 0.14; }
+  .gate__scanlines { opacity: 1; }
+  .gate__inner  { opacity: 1; filter: none; transform: none; }
+  .gate__field.is-error { animation: none; }
+}

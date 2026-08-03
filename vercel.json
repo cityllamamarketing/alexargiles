@@ -1,0 +1,22 @@
+{
+  "rewrites": [
+    { "source": "/branded", "destination": "/branded.html" },
+    { "source": "/branded-gate", "destination": "/branded-gate.html" }
+  ],
+  "headers": [
+    {
+      "source": "/branded(.html)?",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/branded-gate(.html)?",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    }
+  ]
+}

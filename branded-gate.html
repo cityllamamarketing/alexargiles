@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access — Alex Argilés</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="apple-touch-icon" href="/images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/css/gate.css" />
+</head>
+<body>
+
+  <!-- Texture layers -->
+  <div class="gate__grain"     aria-hidden="true"></div>
+  <div class="gate__scanlines" aria-hidden="true"></div>
+  <div class="gate__vignette"  aria-hidden="true"></div>
+
+  <main class="gate" id="gate">
+    <form class="gate__inner" id="gate-form" autocomplete="off" novalidate>
+      <p class="gate__brand">Alex Argilés</p>
+
+      <label class="gate__label" for="gate-input">
+        Enter Access Code<span class="gate__caret" aria-hidden="true"></span>
+      </label>
+
+      <div class="gate__field" id="gate-field">
+        <input
+          class="gate__input"
+          id="gate-input"
+          name="password"
+          type="password"
+          inputmode="text"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-label="Access code"
+          aria-describedby="gate-hint"
+        />
+        <span class="gate__rule" aria-hidden="true"></span>
+      </div>
+
+      <p class="gate__hint" id="gate-hint">Press <span>&#8629;</span> to enter</p>
+
+      <!-- Screen-reader-only status; the visual feedback is the shake -->
+      <p class="gate__sr" role="status" aria-live="polite" id="gate-status"></p>
+    </form>
+  </main>
+
+  <!-- Wipe panel used on success -->
+  <div class="gate__wipe" id="gate-wipe" aria-hidden="true"></div>
+
+  <script src="/js/gate.js"></script>
+</body>
+</html>

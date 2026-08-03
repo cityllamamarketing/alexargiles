@@ -1,0 +1,316 @@
+/* ============================================================
+   BRANDED / CLIENT WORK — light editorial layout
+   Deliberately the inverse of the homepage: near-white ground,
+   generous whitespace, type doing the work.
+============================================================ */
+
+:root {
+  --b-bg:       #f7f6f3;
+  --b-surface:  #ecebe6;
+  --b-ink:      #14130f;
+  --b-muted:    #6b675f;
+  --b-faint:    #a8a49b;
+  --b-rule:     rgba(20, 19, 15, 0.13);
+  --b-accent:   #8a6d34;
+
+  --b-serif: 'Cormorant Garamond', Georgia, serif;
+  --b-sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+
+  --b-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --b-pad: clamp(1.25rem, 5vw, 3.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  background: var(--b-bg);
+  color: var(--b-ink);
+  font-family: var(--b-sans);
+  font-weight: 300;
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.05rem);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+.bcontainer {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: var(--b-pad);
+}
+
+/* ------------------------------------------------------------
+   ENTRY WIPE — matches the gate's hand-off panel
+------------------------------------------------------------ */
+.page-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--b-bg);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.7s var(--b-ease);
+}
+
+.page-wipe.is-clear { opacity: 0; }
+
+/* ------------------------------------------------------------
+   HEADER
+------------------------------------------------------------ */
+.bheader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(247, 246, 243, 0.86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--b-rule);
+}
+
+.bheader__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 68px;
+}
+
+.bheader__logo {
+  font-family: var(--b-serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.bheader__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--b-muted);
+  text-decoration: none;
+  transition: color 0.3s var(--b-ease);
+}
+
+.bheader__back:hover { color: var(--b-ink); }
+.bheader__back svg { transition: transform 0.3s var(--b-ease); }
+.bheader__back:hover svg { transform: translateX(-3px); }
+
+/* ------------------------------------------------------------
+   INTRO
+------------------------------------------------------------ */
+.bintro {
+  padding-top: clamp(4.5rem, 12vw, 9rem);
+  padding-bottom: clamp(3.5rem, 9vw, 7rem);
+}
+
+.beyebrow {
+  font-size: 0.64rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--b-accent);
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.btitle {
+  font-family: var(--b-serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.btitle em { font-style: italic; color: var(--b-muted); }
+
+.blede {
+  max-width: 46ch;
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.28rem);
+  color: var(--b-muted);
+}
+
+/* ------------------------------------------------------------
+   CLIENT BLOCK
+------------------------------------------------------------ */
+.client {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+  border-top: 1px solid var(--b-rule);
+}
+
+.client__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.75rem, 5vw, 4rem);
+  align-items: start;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.client__index {
+  grid-column: 1 / -1;
+  font-size: 0.64rem;
+  letter-spacing: 0.3em;
+  color: var(--b-faint);
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+}
+
+.client__name {
+  font-family: var(--b-serif);
+  font-weight: 300;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.client__desc {
+  color: var(--b-muted);
+  max-width: 56ch;
+}
+
+/* ------------------------------------------------------------
+   VIDEO GRID
+   Items size to each video's own aspect ratio, so vertical
+   social cuts and landscape masters can sit side by side.
+------------------------------------------------------------ */
+.client__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+  list-style: none;
+}
+
+.vid {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s var(--b-ease), transform 0.8s var(--b-ease);
+}
+
+.vid.is-in { opacity: 1; transform: none; }
+
+/* Optional emphasis for a landscape hero cut. Not used by
+   CompreMarket — every clip there is vertical, and spanning a
+   portrait video across the grid makes it absurdly tall. */
+.vid--lead { grid-column: span 2; }
+
+.vid__frame {
+  position: relative;
+  background: var(--b-surface);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.vid__media {
+  width: 100%;
+  height: auto;
+  transition: transform 0.9s var(--b-ease);
+}
+
+.vid__frame:hover .vid__media { transform: scale(1.02); }
+
+/* Play affordance — hides once the clip is running with sound */
+.vid__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(247, 246, 243, 0.9);
+  color: var(--b-ink);
+  cursor: pointer;
+  transition: opacity 0.4s var(--b-ease), transform 0.4s var(--b-ease);
+}
+
+.vid__play svg { margin-left: 2px; }
+
+.vid__frame:hover .vid__play { transform: translate(-50%, -50%) scale(1.06); }
+
+.vid__frame.is-playing .vid__play {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vid__label {
+  margin-top: 0.9rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--b-muted);
+}
+
+/* Fallback note shown only if a source fails to decode */
+.vid__frame.is-unsupported::after {
+  content: 'Preview unavailable in this browser';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  text-align: center;
+  background: var(--b-surface);
+  color: var(--b-faint);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------
+   FOOTER
+------------------------------------------------------------ */
+.bfooter {
+  border-top: 1px solid var(--b-rule);
+  padding-block: clamp(2rem, 5vw, 3rem);
+  margin-top: clamp(2rem, 6vw, 4rem);
+}
+
+.bfooter__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--b-muted);
+}
+
+.bfooter a { text-decoration: none; transition: color 0.3s var(--b-ease); }
+.bfooter a:hover { color: var(--b-ink); }
+
+/* ------------------------------------------------------------
+   RESPONSIVE
+------------------------------------------------------------ */
+@media (max-width: 780px) {
+  .client__head { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+
+/* Two columns on phones — a single full-width portrait clip
+   would run ~700px tall. */
+@media (max-width: 560px) {
+  .client__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .vid--lead { grid-column: span 2; }
+  .vid__label { font-size: 0.6rem; letter-spacing: 0.18em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vid { opacity: 1; transform: none; transition: none; }
+  .vid__media { transition: none; }
+  .page-wipe { transition: none; opacity: 0; }
+}

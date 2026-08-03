@@ -6,6 +6,11 @@
 # Videos tracked via Git LFS (see .gitattributes)
 # No exclusions needed — LFS handles large files automatically
 
+# Local environment — never commit real secrets
+.env
+.env.local
+.env.*.local
+
 # Unrelated sub-projects
 Documents/
 

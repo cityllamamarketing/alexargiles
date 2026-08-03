@@ -725,6 +725,42 @@ button { background: none; border: none; font: inherit; color: inherit; }
 ============================================================ */
 .about { background: var(--color-bg-subtle); }
 
+/* ============================================================
+   BRANDED ENTRY — thin band between the work reel and About
+============================================================ */
+.branded-entry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding-block: clamp(var(--space-8), 5vw, var(--space-12));
+  border-top: var(--border);
+  border-bottom: var(--border);
+  text-decoration: none;
+  color: var(--color-text-muted);
+  transition: color var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+
+.branded-entry:hover {
+  color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.branded-entry__label {
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.branded-entry__arrow {
+  font-size: var(--text-sm);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.branded-entry:hover .branded-entry__arrow { transform: translateX(6px); }
+
 .about__grid {
   display: grid;
   grid-template-columns: 1.35fr 1fr;

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /branded
+Disallow: /branded.html
+Disallow: /branded-gate
+Disallow: /branded-gate.html
+Allow: /
