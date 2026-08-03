@@ -62,6 +62,12 @@
 
          Give the first video in a block class "vid vid--lead" to
          run it full width; every other item sits in the grid.
+
+         Within a client, group clips with <div class="client__group">
+         when the production method differs (e.g. human-directed vs.
+         AI-generated) — the group label + caption make the distinction
+         explicit rather than letting different-origin clips blend into
+         one grid.
     ============================================================ -->
 
     <!-- ---------- CompreMarket ---------- -->
@@ -72,97 +78,157 @@
           <p class="client__index">01</p>
           <h2 class="client__name">CompreMarket</h2>
           <p class="client__desc">
-            CompreMarket is reimagining food delivery e-commerce. Alex served as
-            Creative Director and CMO, architecting an AI-native production
-            pipeline — Suno for score, ElevenLabs for voice, HeyGen for video
-            generation — polished end-to-end in Adobe Creative Cloud (Premiere
-            Pro, After Effects, Photoshop) for social distribution.
+            CompreMarket is reimagining food delivery e-commerce. Alex led
+            digital marketing for the brand, managing vendor relationships
+            and newsletter content, while also directing an AI-native
+            production pipeline — Suno for score, ElevenLabs for voice,
+            HeyGen for video generation — polished end-to-end in Adobe
+            Creative Cloud (Premiere Pro, After Effects, Photoshop) for
+            social distribution.
           </p>
         </header>
 
-        <ul class="client__grid" role="list">
+        <!-- ---------- Group: Directed Content ---------- -->
+        <div class="client__group client__group--directed">
+          <div class="client__group-head">
+            <h3 class="client__group-label">Directed Content</h3>
+            <p class="client__group-caption">
+              Directed remotely via shot list and storyboard — real subject,
+              real performance, human-directed.
+            </p>
+          </div>
 
-          <li class="vid">
-            <div class="vid__frame">
-              <video
-                class="vid__media"
-                src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_master_05.mp4"
-                muted loop playsinline preload="metadata" data-poster-time="2"
-              ></video>
-              <button class="vid__play" type="button" aria-label="Play Brand Master">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <p class="vid__label">Brand Master</p>
-          </li>
+          <ul class="client__grid" role="list">
 
-          <li class="vid">
-            <div class="vid__frame">
-              <video
-                class="vid__media"
-                src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_spot_02.mp4"
-                muted loop playsinline preload="metadata"
-              ></video>
-              <button class="vid__play" type="button" aria-label="Play Spot 02">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <p class="vid__label">Spot 02</p>
-          </li>
+            <li class="vid">
+              <div class="vid__frame">
+                <video
+                  class="vid__media"
+                  src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/CC_CM_SPOT_01.mp4"
+                  muted loop playsinline preload="metadata" data-poster-time="4.5"
+                ></video>
+                <button class="vid__play" type="button" aria-label="Play Directed Spot 01">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="vid__label">Directed Spot 01</p>
+            </li>
 
-          <li class="vid">
-            <div class="vid__frame">
-              <video
-                class="vid__media"
-                src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_spot_03.mp4"
-                muted loop playsinline preload="metadata" data-poster-time="4.5"
-              ></video>
-              <button class="vid__play" type="button" aria-label="Play Spot 03">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <p class="vid__label">Spot 03</p>
-          </li>
+            <li class="vid">
+              <div class="vid__frame">
+                <video
+                  class="vid__media"
+                  src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/CC_CM_SPOT_02.mp4"
+                  muted loop playsinline preload="metadata" data-poster-time="4"
+                ></video>
+                <button class="vid__play" type="button" aria-label="Play Directed Spot 02">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="vid__label">Directed Spot 02</p>
+            </li>
 
-          <li class="vid">
-            <div class="vid__frame">
-              <video
-                class="vid__media"
-                src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_spot_04.mp4"
-                muted loop playsinline preload="metadata" data-poster-time="3.6"
-              ></video>
-              <button class="vid__play" type="button" aria-label="Play Spot 04">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <p class="vid__label">Spot 04</p>
-          </li>
+          </ul>
+        </div>
 
-          <li class="vid">
-            <div class="vid__frame">
-              <video
-                class="vid__media"
-                src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_shipping_01.mp4"
-                muted loop playsinline preload="metadata"
-              ></video>
-              <button class="vid__play" type="button" aria-label="Play Shipping">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </button>
-            </div>
-            <p class="vid__label">Shipping</p>
-          </li>
+        <!-- ---------- Group: AI-Native Production ---------- -->
+        <div class="client__group client__group--ai">
+          <div class="client__group-head">
+            <h3 class="client__group-label">AI-Native Production</h3>
+            <p class="client__group-caption">
+              Generated end-to-end with an AI pipeline — Suno, ElevenLabs,
+              HeyGen — and finished in Adobe Creative Cloud.
+            </p>
+          </div>
 
-        </ul>
+          <ul class="client__grid" role="list">
+
+            <li class="vid">
+              <div class="vid__frame">
+                <video
+                  class="vid__media"
+                  src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_master_05.mp4"
+                  muted loop playsinline preload="metadata" data-poster-time="2"
+                ></video>
+                <button class="vid__play" type="button" aria-label="Play Brand Master">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="vid__label">Brand Master</p>
+            </li>
+
+            <li class="vid">
+              <div class="vid__frame">
+                <video
+                  class="vid__media"
+                  src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_spot_02.mp4"
+                  muted loop playsinline preload="metadata"
+                ></video>
+                <button class="vid__play" type="button" aria-label="Play Spot 02">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="vid__label">Spot 02</p>
+            </li>
+
+            <li class="vid">
+              <div class="vid__frame">
+                <video
+                  class="vid__media"
+                  src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_spot_03.mp4"
+                  muted loop playsinline preload="metadata" data-poster-time="4.5"
+                ></video>
+                <button class="vid__play" type="button" aria-label="Play Spot 03">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="vid__label">Spot 03</p>
+            </li>
+
+            <li class="vid">
+              <div class="vid__frame">
+                <video
+                  class="vid__media"
+                  src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_spot_04.mp4"
+                  muted loop playsinline preload="metadata" data-poster-time="3.6"
+                ></video>
+                <button class="vid__play" type="button" aria-label="Play Spot 04">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="vid__label">Spot 04</p>
+            </li>
+
+            <li class="vid">
+              <div class="vid__frame">
+                <video
+                  class="vid__media"
+                  src="https://alexargiles-videos-portfolio.b-cdn.net/BRANDED_COMPREMARKET/comprematket_shipping_01.mp4"
+                  muted loop playsinline preload="metadata"
+                ></video>
+                <button class="vid__play" type="button" aria-label="Play Shipping">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="vid__label">Shipping</p>
+            </li>
+
+          </ul>
+        </div>
       </div>
     </section>
 

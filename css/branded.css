@@ -176,6 +176,58 @@ a { color: inherit; }
 }
 
 /* ------------------------------------------------------------
+   CLIENT GROUP — splits a client's clips by production method
+   (e.g. human-directed vs. AI-generated) so the two never blend
+   into one undifferentiated grid. A coloured marker dot on the
+   label gives a second, non-text cue beyond the caption copy.
+------------------------------------------------------------ */
+.client__group { margin-top: clamp(2.75rem, 7vw, 4.5rem); }
+.client__group:first-of-type { margin-top: 0; }
+
+.client__group-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: clamp(1rem, 3vw, 1.75rem);
+  row-gap: 0.5rem;
+  padding-bottom: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+  border-bottom: 1px solid var(--b-rule);
+}
+
+.client__group-label {
+  display: flex;
+  align-items: center;
+  font-family: var(--b-sans);
+  font-weight: 500;
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--b-ink);
+  white-space: nowrap;
+}
+
+.client__group-label::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  margin-right: 0.65em;
+  border-radius: 50%;
+  background: var(--b-faint);
+  flex-shrink: 0;
+}
+
+.client__group--directed .client__group-label::before { background: var(--b-accent); }
+.client__group--ai .client__group-label::before { background: #5b6b73; }
+
+.client__group-caption {
+  font-family: var(--b-serif);
+  font-style: italic;
+  font-size: 0.94rem;
+  color: var(--b-muted);
+}
+
+/* ------------------------------------------------------------
    VIDEO GRID
    Every card is forced to the same 9:16 frame regardless of a
    given clip's native resolution, so the row reads as one set
