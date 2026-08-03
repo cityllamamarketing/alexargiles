@@ -53,9 +53,6 @@
 
     let opened = false; // true once the visitor has clicked to watch properly
 
-    // Flag clips this browser cannot decode (e.g. QuickTime in Firefox).
-    video.addEventListener('error', () => frame.classList.add('is-unsupported'));
-
     const prime = () => {
       if (video.currentTime < POSTER_TIME) {
         try { video.currentTime = POSTER_TIME; } catch { /* ignore */ }
