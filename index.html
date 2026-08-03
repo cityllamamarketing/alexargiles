@@ -259,12 +259,26 @@
     </section>
 
     <!-- ============================================================
-         BRANDED — quiet entry point, kept outside the film reel
+         BRANDED — entry point into the client/branded section,
+         deliberately not styled as a 7th film (no index badge,
+         contained card instead of a full-viewport panel)
     ============================================================ -->
-    <a href="/branded" class="branded-entry" data-cursor-label="ENTER">
-      <span class="branded-entry__label">Client &amp; Branded Work</span>
-      <span class="branded-entry__arrow" aria-hidden="true">&rarr;</span>
-    </a>
+    <section class="branded-teaser">
+      <div class="container">
+        <a href="/branded" class="branded-teaser__card" data-cursor-label="ENTER">
+          <p class="branded-teaser__eyebrow">Selected Client Work</p>
+          <div class="branded-teaser__row">
+            <h3 class="branded-teaser__title">Client &amp; Branded Work</h3>
+            <span class="branded-teaser__arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
 
     <!-- ============================================================
          ABOUT

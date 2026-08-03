@@ -726,40 +726,94 @@ button { background: none; border: none; font: inherit; color: inherit; }
 .about { background: var(--color-bg-subtle); }
 
 /* ============================================================
-   BRANDED ENTRY — thin band between the work reel and About
+   BRANDED TEASER — card entry point between the work reel and
+   About. Deliberately reads as "a separate section," not a 7th
+   film: no index badge, contained card rather than a full-bleed
+   panel, lighter surface instead of the reel's pure black.
 ============================================================ */
-.branded-entry {
+.branded-teaser {
+  padding-block: clamp(var(--space-10), 6vw, var(--space-16));
+  background: var(--color-bg);
+}
+
+.branded-teaser__card {
+  display: block;
+  padding: clamp(var(--space-6), 4vw, var(--space-10)) clamp(var(--space-6), 5vw, var(--space-12));
+  background: var(--color-surface);
+  border: var(--border);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+
+.branded-teaser__card:hover {
+  border-color: rgba(200, 169, 110, 0.45);
+  background: #1f1f1f;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.branded-teaser__eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+.branded-teaser__row {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: var(--space-4);
-  padding-block: clamp(var(--space-8), 5vw, var(--space-12));
-  border-top: var(--border);
-  border-bottom: var(--border);
-  text-decoration: none;
-  color: var(--color-text-muted);
-  transition: color var(--dur-base) var(--ease-out),
-              background var(--dur-base) var(--ease-out);
 }
 
-.branded-entry:hover {
-  color: var(--color-accent);
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.branded-entry__label {
-  font-size: var(--text-xs);
+.branded-teaser__title {
+  font-family: var(--font-serif);
   font-weight: 400;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  font-size: var(--text-xl);
+  letter-spacing: 0.01em;
+  position: relative;
+  display: inline-block;
 }
 
-.branded-entry__arrow {
-  font-size: var(--text-sm);
-  transition: transform var(--dur-base) var(--ease-out);
+/* Underline reveal on hover, independent of the card's own border cue */
+.branded-teaser__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -4px;
+  height: 1px;
+  background: var(--color-accent);
+  transition: right var(--dur-slow) var(--ease-out);
 }
 
-.branded-entry:hover .branded-entry__arrow { transform: translateX(6px); }
+.branded-teaser__card:hover .branded-teaser__title::after { right: 0; }
+
+.branded-teaser__arrow {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  transition: transform var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out);
+}
+
+.branded-teaser__card:hover .branded-teaser__arrow {
+  transform: translateX(4px);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
 
 .about__grid {
   display: grid;
