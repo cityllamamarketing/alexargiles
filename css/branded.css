@@ -177,8 +177,9 @@ a { color: inherit; }
 
 /* ------------------------------------------------------------
    VIDEO GRID
-   Items size to each video's own aspect ratio, so vertical
-   social cuts and landscape masters can sit side by side.
+   Every card is forced to the same 9:16 frame regardless of a
+   given clip's native resolution, so the row reads as one set
+   rather than a jumble of mismatched aspect ratios.
 ------------------------------------------------------------ */
 .client__grid {
   display: grid;
@@ -203,14 +204,18 @@ a { color: inherit; }
 
 .vid__frame {
   position: relative;
+  aspect-ratio: 9 / 16;
   background: var(--b-surface);
   overflow: hidden;
   cursor: pointer;
 }
 
 .vid__media {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.9s var(--b-ease);
 }
 

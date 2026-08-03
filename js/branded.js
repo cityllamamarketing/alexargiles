@@ -45,17 +45,25 @@
   // A paused <video> paints nothing until a frame has been decoded, which
   // would leave every card as an empty rectangle. Seeking slightly into the
   // clip forces one frame to render, so each video posters itself.
-  const POSTER_TIME = 0.12;
+  //
+  // The default works for most clips, but some open on a black slate or a
+  // flat logo card that holds for a few seconds — for those, set
+  // data-poster-time="2.4" (etc.) on the <video> to pick a later frame with
+  // real footage in it. Values below were sampled per-clip by capturing
+  // frames and measuring pixel variance (flat/logo cards score near zero).
+  const DEFAULT_POSTER_TIME = 0.12;
 
   frames.forEach(frame => {
     const video = frame.querySelector('.vid__media');
     if (!video) return;
 
+    const posterTime = parseFloat(video.dataset.posterTime) || DEFAULT_POSTER_TIME;
+
     let opened = false; // true once the visitor has clicked to watch properly
 
     const prime = () => {
-      if (video.currentTime < POSTER_TIME) {
-        try { video.currentTime = POSTER_TIME; } catch { /* ignore */ }
+      if (video.currentTime < posterTime) {
+        try { video.currentTime = posterTime; } catch { /* ignore */ }
       }
     };
     if (video.readyState >= 1) prime();
@@ -70,7 +78,7 @@
       frame.addEventListener('mouseleave', () => {
         if (opened) return;
         video.pause();
-        video.currentTime = POSTER_TIME; // back to the still, not to blank
+        video.currentTime = posterTime; // back to the still, not to blank
       });
     }
 
