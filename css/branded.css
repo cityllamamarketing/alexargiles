@@ -175,6 +175,19 @@ a { color: inherit; }
   max-width: 56ch;
 }
 
+/* Key figures under a client description, e.g. "20 MIN · 7 CHAPTERS".
+   Each figure is a nowrap span so lines only break between figures. */
+.client__stats {
+  margin-top: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: 0.64rem;
+  letter-spacing: 0.24em;
+  line-height: 2.1;
+  text-transform: uppercase;
+  color: var(--b-accent);
+}
+
+.client__stats span { white-space: nowrap; }
+
 /* ------------------------------------------------------------
    CLIENT GROUP — splits a client's clips by production method
    (e.g. human-directed vs. AI-generated) so the two never blend
@@ -253,6 +266,11 @@ a { color: inherit; }
    CompreMarket — every clip there is vertical, and spanning a
    portrait video across the grid makes it absurdly tall. */
 .vid--lead { grid-column: span 2; }
+
+/* A single landscape cut at full content width (e.g. Burger King).
+   Two classes so it beats the two-column phone rule further down. */
+.client__grid.client__grid--single { grid-template-columns: 1fr; }
+.vid--wide .vid__frame { aspect-ratio: 16 / 9; }
 
 .vid__frame {
   position: relative;
