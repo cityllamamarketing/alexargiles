@@ -60,6 +60,9 @@
          Nothing else needs to be touched — the layout, video
          behaviour, and reveal animation all bind by class.
 
+         Order clients newest work first, and renumber the
+         .client__index badges (01, 02, ...) to match.
+
          Give the first video in a block class "vid vid--lead" to
          run it full width; every other item sits in the grid.
 
@@ -70,12 +73,74 @@
          one grid.
     ============================================================ -->
 
+    <!-- ---------- Burger King ---------- -->
+    <section class="client" id="client-burger-king">
+      <div class="bcontainer">
+
+        <header class="client__head">
+          <p class="client__index">01</p>
+          <h2 class="client__name">Burger King</h2>
+          <div class="client__body">
+            <p class="client__desc">
+              Burger King needed a museum piece: a 20-minute documentary loop
+              for its franchisee convention, played on a 163-inch screen to a
+              room that walks in mid-story. Alex produced and edited it end to
+              end in five and a half weeks, without shooting a single frame. He
+              directed franchisees, vendors and factory crews across the
+              country remotely, through capture guides he wrote and interviews
+              recorded on Riverside. In the edit, he rebuilt the client's
+              four-part brief into a seven-chapter journey from site selection
+              to opening day, designed the motion system in Burger King's own
+              typography, and built an AI-assisted After Effects pipeline that
+              delivered 30+ animations on deadline. Client: Restaurant Brands
+              International.
+            </p>
+            <p class="client__stats">
+              <span>20 MIN</span> · <span>7 CHAPTERS</span> · <span>15 SPEAKERS</span> ·
+              <span>30+ ANIMATIONS</span> · <span>5.5 WEEKS</span>
+            </p>
+          </div>
+        </header>
+
+        <div class="client__group client__group--directed">
+          <div class="client__group-head">
+            <h3 class="client__group-label">Documentary Loop</h3>
+            <p class="client__group-caption">
+              Fifteen voices, seven chapters, one story. Every frame shot by
+              someone else, every cut made here.
+            </p>
+          </div>
+
+          <!-- One landscape cut at full content width, not a vertical grid -->
+          <ul class="client__grid client__grid--single" role="list">
+
+            <li class="vid vid--wide">
+              <div class="vid__frame">
+                <video
+                  class="vid__media"
+                  src="https://alexargiles-videos-portfolio.b-cdn.net/RBI_PORTFOLIO_1080p_V2.mp4"
+                  muted loop playsinline preload="metadata" data-poster-time="10"
+                ></video>
+                <button class="vid__play" type="button" aria-label="Play Burger King portfolio cut">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="vid__label">Portfolio Cut · 1:37</p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- ---------- CompreMarket ---------- -->
     <section class="client" id="client-compremarket">
       <div class="bcontainer">
 
         <header class="client__head">
-          <p class="client__index">01</p>
+          <p class="client__index">02</p>
           <h2 class="client__name">CompreMarket</h2>
           <p class="client__desc">
             CompreMarket is reimagining food delivery e-commerce. Alex led
@@ -225,68 +290,6 @@
                 </button>
               </div>
               <p class="vid__label">Shipping</p>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ---------- Burger King ---------- -->
-    <section class="client" id="client-burger-king">
-      <div class="bcontainer">
-
-        <header class="client__head">
-          <p class="client__index">02</p>
-          <h2 class="client__name">Burger King</h2>
-          <div class="client__body">
-            <p class="client__desc">
-              Burger King needed a museum piece: a 20-minute documentary loop
-              for its franchisee convention, played on a 163-inch screen to a
-              room that walks in mid-story. Alex produced and edited it end to
-              end in five and a half weeks, without shooting a single frame. He
-              directed franchisees, vendors and factory crews across the
-              country remotely, through capture guides he wrote and interviews
-              recorded on Riverside. In the edit, he rebuilt the client's
-              four-part brief into a seven-chapter journey from site selection
-              to opening day, designed the motion system in Burger King's own
-              typography, and built an AI-assisted After Effects pipeline that
-              delivered 30+ animations on deadline. Client: Restaurant Brands
-              International.
-            </p>
-            <p class="client__stats">
-              <span>20 MIN</span> · <span>7 CHAPTERS</span> · <span>15 SPEAKERS</span> ·
-              <span>30+ ANIMATIONS</span> · <span>5.5 WEEKS</span>
-            </p>
-          </div>
-        </header>
-
-        <div class="client__group client__group--directed">
-          <div class="client__group-head">
-            <h3 class="client__group-label">Documentary Loop</h3>
-            <p class="client__group-caption">
-              Fifteen voices, seven chapters, one story. Every frame shot by
-              someone else, every cut made here.
-            </p>
-          </div>
-
-          <!-- One landscape cut at full content width, not a vertical grid -->
-          <ul class="client__grid client__grid--single" role="list">
-
-            <li class="vid vid--wide">
-              <div class="vid__frame">
-                <video
-                  class="vid__media"
-                  src="https://alexargiles-videos-portfolio.b-cdn.net/RBI_PORTFOLIO_1080p_V2.mp4"
-                  muted loop playsinline preload="metadata" data-poster-time="10"
-                ></video>
-                <button class="vid__play" type="button" aria-label="Play Burger King portfolio cut">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </button>
-              </div>
-              <p class="vid__label">Portfolio Cut · 1:37</p>
             </li>
 
           </ul>
