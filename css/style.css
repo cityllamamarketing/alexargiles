@@ -1011,23 +1011,11 @@ button { background: none; border: none; font: inherit; color: inherit; }
    RESPONSIVE
 ============================================================ */
 @media (max-width: 768px) {
-  /* ── Scroll snap — one panel at a time ── */
-  html {
-    scroll-snap-type: y mandatory;
-  }
-
-  /* Hero + project panels: must stop at each one */
-  .hero,
-  .project-panel {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-
-  /* About + contact: snap to top but allow scrolling within */
-  .about,
-  .contact {
-    scroll-snap-align: start;
-  }
+  /* ── Scrolling: free, no snap ──
+     Mandatory snap with a forced stop on every panel made phones
+     scroll one screen at a time, and pulled straight past the short
+     Branded teaser, which had no snap point of its own. Panels still
+     activate their video at 45% visibility (see main.js). */
 
   /* ── Hero: full viewport, text at top as its own zone ── */
   .hero {
